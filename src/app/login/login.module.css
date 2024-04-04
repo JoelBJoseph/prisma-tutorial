@@ -1,0 +1,98 @@
+.container{
+    text-align: center;
+}
+
+.cardContainer{
+    border: solid grey 2px;
+    border-radius: 5px;
+    width: 580px;
+    height: 630px;
+    padding: 50px;
+}
+
+.close{
+    text-align: left;
+    border: solid black 2px;
+    display: flex;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+}
+
+.headerContainer{
+    padding: 5px;
+}
+
+.head{
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+.subHead{
+    font-size: 13px;
+}
+
+.link{
+    color: dodgerblue;
+}
+
+.form{
+    text-align: center;
+    width: 400px;
+    padding: 30px;
+    margin-left: 63px;
+}
+
+.formInput{
+    text-align: left;
+    margin-top: 10px;
+}
+
+.label{
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.input{
+    padding: 8px;
+    width: 300px;
+    margin-bottom: 5px;
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+.signin{
+    margin-top: 20px;
+    margin-right: 39px;
+    margin-bottom: 13px;
+    background-color: dodgerblue;
+    color: white;
+    width: 300px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.forgot{
+    color: dodgerblue;
+    text-align: center;
+    margin-right: 40px;
+}
+
+.continueContainer{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.or{
+    color: grey;
+}
+
+.google{
+    border: solid grey 2px;
+    width: 300px;
+    padding: 7px;
+    border-radius: 5px;
+    color: dodgerblue;
+    margin-top: 15px;
+}
