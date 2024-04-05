@@ -17,28 +17,9 @@ const Signup = () => {
 
     const registerUser = async (e) => {
         e.preventDefault()
-        const response = await fetch('/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({data})
-        })
-        const userInfo = await response.json()
-        console.log(userInfo)
-        router.push('/login')
-    }
-
-    function handleEmailChange(e){
-        setData({...data,email: e.target.value})
-    }
-
-    function handlePasswordChange(e){
-        setData({...data,password: e.target.value})
-    }
-
-    function handleNameChange(e){
-        setData({...data,name: e.target.value})
+        axios.post('/api/signup',data)
+            .then(() => alert('User has been registered!'))
+            .catch(() => alert('An error occurred!'))
     }
 
     return (
@@ -63,20 +44,24 @@ const Signup = () => {
                 <div className={style.form}>
                     <div className={style.formInput}>
                         <label className={style.label} htmlFor={"name"}>Name</label><br/>
-                        <input onChange={(e) => handleNameChange(e)} className={style.input} type={"text"}
-                               name={"name"} value={data.name}
+                        <input value={data.name} onChange={(e) => setData({...data, name: e.target.value})} className={style.input} type={"text"}
+                               name={"name"}
                                placeholder={"Enter your name"}/><br/>
                     </div>
                     <div className={style.formInput}>
                         <label className={style.label} htmlFor={"email"}>Email</label><br/>
-                        <input onChange={(e) => handleEmailChange(e)} className={style.input} type={"email"}
-                               name={"email"} value={data.email}
+                        <input value={data.email}
+                               onChange={(e) => setData({...data, email: e.target.value})}
+                               className={style.input} type={"email"}
+                               name={"email"}
                                placeholder={"Enter your email"}/><br/>
                     </div>
                     <div className={style.formInput}>
                         <label className={style.label} htmlFor={"password"}>Password</label><br/>
-                        <input onChange={(e) => handlePasswordChange(e)} className={style.input} type={"password"}
-                               name={"password"} value={data.password}
+                        <input value={data.password}
+                               onChange={(e) => setData({...data, password: e.target.value})}
+                               className={style.input} type={"password"}
+                               name={"password"}
                                placeholder={"Enter your password"}/><br/>
                     </div>
 

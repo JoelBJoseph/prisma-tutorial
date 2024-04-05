@@ -1,10 +1,26 @@
+"use client";
+
 import style from "./login.module.css"
 import Link from "next/link";
+import {useState} from "react";
+import { signIn } from "next-auth/react"
 
 const Login = () => {
+
+    const [data, setData] = useState({
+        email: '',
+        password: '',
+    })
+
+    const loginUser = async (e) => {
+        e.preventDefault()
+        signIn('credentials', {...data, redirect: false})
+            .then(() => alert('User has been logged in!'))
+    }
+
     return (
         <div className={style.container}>
-            <div className={style.cardContainer}>
+            <form className={style.cardContainer} onSubmit={loginUser}>
 
                 <div className={style.close}>
                     <Link href={"/"}>
@@ -23,12 +39,12 @@ const Login = () => {
                 <div className={style.form}>
                     <div className={style.formInput}>
                         <label className={style.label} htmlFor={"email"}>Email</label><br/>
-                        <input className={style.input} type={"email"} name={"email"}
+                        <input value={data.email} onChange={e => setData({...data, email: e.target.value})} className={style.input} type={"email"} name={"email"}
                                placeholder={"Enter your email"}/><br/>
                     </div>
                     <div className={style.formInput}>
                         <label className={style.label} htmlFor={"password"}>Password</label><br/>
-                        <input className={style.input} type={"password"} name={"password"}
+                        <input value={data.password} onChange={e => setData({...data, password: e.target.value})} className={style.input} type={"password"} name={"password"}
                                placeholder={"Enter your password"}/><br/>
                     </div>
 
@@ -44,7 +60,7 @@ const Login = () => {
                     <button className={style.google}>Continue with Google</button>
                 </div>
 
-            </div>
+            </form>
         </div>
     );
 }
