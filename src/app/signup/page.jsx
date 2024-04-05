@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios"
+import toast from "react-hot-toast";
 
 const Signup = () => {
 
@@ -18,8 +19,8 @@ const Signup = () => {
     const registerUser = async (e) => {
         e.preventDefault()
         axios.post('/api/signup',data)
-            .then(() => alert('User has been registered!'))
-            .catch(() => alert('An error occurred!'))
+            .then(() => toast.success('User has been registered'))
+            .catch(() => toast.error('Something went wrong!'))
     }
 
     return (

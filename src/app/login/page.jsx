@@ -4,6 +4,7 @@ import style from "./login.module.css"
 import Link from "next/link";
 import {useState} from "react";
 import { signIn } from "next-auth/react"
+import toast from "react-hot-toast";
 
 const Login = () => {
 
@@ -15,7 +16,15 @@ const Login = () => {
     const loginUser = async (e) => {
         e.preventDefault()
         signIn('credentials', {...data, redirect: false})
-            .then(() => alert('User has been logged in!'))
+            .then((callback) => {
+                if (callback?.error){
+                    toast.error(callback.error)
+                }
+
+                if(callback?.ok && callback?.error){
+                    toast.success('Logged in successfully')
+                }
+            })
     }
 
     return (
