@@ -62,7 +62,7 @@ const Login = () => {
                     <span className={style.forgot}>Forgot your password?</span>
                 </div>
                 <svg width="450" height="2">
-                    <line x1="0" y1="1" x2="100%" y2="1" stroke="#333" stroke-width="2"/>
+                    <line x1="0" y1="1" x2="100%" y2="1" stroke="#333" strokeWidth="2"/>
                 </svg>
                 <div className={style.continueContainer}>
                     <span className={style.or}>or sign in using:</span><br/>
